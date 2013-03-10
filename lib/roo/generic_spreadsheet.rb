@@ -362,32 +362,32 @@ class GenericSpreadsheet
   protected
 
   def file_type_check(filename, ext, name)
-    new_expression = {
-      '.ods' => 'Openoffice.new',
-      '.xls' => 'Excel.new',
-      '.xlsx' => 'Excelx.new',
-      '.xml' => 'Excel2003.new'
-    }
-    case ext
-    when '.ods', '.xls', '.xlsx', '.xml'
-      correct_class = "use #{new_expression[ext]} to handle #{ext} spreadsheet files"
-    else
-      raise "unknown file type: #{ext}"
-    end
-    if File.extname(filename).downcase != ext
-      case @file_warning
-      when :error
-        warn correct_class
-        raise TypeError, "#{filename} is not #{name} file"
-      when :warning
-        warn "are you sure, this is #{name} spreadsheet file?"
-        warn correct_class
-      when :ignore
-        # ignore
-      else
-        raise "#{@file_warning} illegal state of file_warning"
-      end
-    end
+    #new_expression = {
+    #  '.ods' => 'Openoffice.new',
+    #  '.xls' => 'Excel.new',
+    #  '.xlsx' => 'Excelx.new',
+    #  '.xml' => 'Excel2003.new'
+    #}
+    #case ext
+    #when '.ods', '.xls', '.xlsx', '.xml'
+    #  correct_class = "use #{new_expression[ext]} to handle #{ext} spreadsheet files"
+    #else
+    #  raise "unknown file type: #{ext}"
+    #end
+    #if File.extname(filename).downcase != ext
+    #  case @file_warning
+    #  when :error
+    #    warn correct_class
+    #    raise TypeError, "#{filename} is not #{name} file"
+    #  when :warning
+    #    warn "are you sure, this is #{name} spreadsheet file?"
+    #    warn correct_class
+    #  when :ignore
+    #    # ignore
+    #  else
+    #    raise "#{@file_warning} illegal state of file_warning"
+    #  end
+    #end
   end
 
   # konvertiert einen Key in der Form "12,45" (=row,column) in
